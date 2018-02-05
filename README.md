@@ -44,3 +44,13 @@ Rest application performing very basic contract CRUD operations.
     - if adding new file, then add it to the change-set-master-list.yaml file
 - More details can be found at http://www.liquibase.org/quickstart.html
 
+## Running instance with a local MySql database instance on docker
+- Install Docker
+- Run docker script to setup MySql
+  - docker-mysql/docker-mysql.sh
+- Setup app to use mysql database
+  - open src/main/resources/application.properties
+  - uncomment mysql settings
+  - comment out h2 settings
+  - replace IP address with IP of container 
+
