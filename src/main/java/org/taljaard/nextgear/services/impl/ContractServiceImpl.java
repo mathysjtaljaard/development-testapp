@@ -1,6 +1,6 @@
 package org.taljaard.nextgear.services.impl;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,7 +48,7 @@ public class ContractServiceImpl implements IContractService {
 		contract.setStatus(ContractServiceUtilities.determineStatus(contract));
 
 		if (StringUtils.equals(ContractStatus.Approved.toString(), contract.getStatus())) {
-			Date creationDate = new Date(new DateTime().getMillis());
+			Timestamp creationDate = new Timestamp(new DateTime().getMillis());
 			contract.setActivitationDate(creationDate);
 			contract.setCreateDate(creationDate);
 			contract.setUpdateDate(creationDate);
@@ -131,7 +131,7 @@ public class ContractServiceImpl implements IContractService {
 		contract.setType(ContractServiceUtilities.determineType(contract));
 		contract.setStatus(ContractServiceUtilities.determineStatus(contract));
 		
-		Date updateDate = new Date(new DateTime().getMillis());
+		Timestamp updateDate = new Timestamp(new DateTime().getMillis());
 		contract.setUpdateDate(updateDate);
 		
 		if (StringUtils.equals(ContractStatus.Denied.toString(), contract.getStatus())) {

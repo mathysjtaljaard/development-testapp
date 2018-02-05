@@ -34,7 +34,6 @@ import org.taljaard.nextgear.tests.base.ITBase;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.GsonBuilder;
 
 @WebAppConfiguration
 public class ContractRestControllerIntegrationTest extends ITBase {
@@ -53,9 +52,8 @@ public class ContractRestControllerIntegrationTest extends ITBase {
 
 	@Before
 	public void setup() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-		gsonConverter = new GsonBuilder().setDateFormat("YYYY-mm-dd").create();
 		
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 		contract = createNewContractDOA();
 	}
 

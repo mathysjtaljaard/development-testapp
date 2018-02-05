@@ -2,8 +2,9 @@ package org.taljaard.nextgear.model.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +16,8 @@ public class Contract implements Serializable {
 	private static final long serialVersionUID = 5929564962091758538L;
 
 	@JsonProperty(access = Access.READ_ONLY)
-	private Date activitationDate;
+	@JsonFormat(pattern = "YYYY-mm-dd hh:mm:ss")
+	private Timestamp activitationDate;
 	private BigDecimal amountRequested;
 
 	private String businessNumber;
@@ -27,9 +29,9 @@ public class Contract implements Serializable {
 	private String type;
 
 	@JsonIgnore
-	private Date updateDate;
+	private Timestamp updateDate;
 	@JsonIgnore
-	private Date createDate;
+	private Timestamp createDate;
 
 	public Contract() {
 	}
@@ -40,11 +42,11 @@ public class Contract implements Serializable {
 		this.amountRequested = amountRequested;
 	}
 
-	public Date getActivitationDate() {
+	public Timestamp getActivitationDate() {
 		return activitationDate;
 	}
 
-	public void setActivitationDate(Date activitationDate) {
+	public void setActivitationDate(Timestamp activitationDate) {
 		this.activitationDate = activitationDate;
 	}
 
@@ -96,19 +98,19 @@ public class Contract implements Serializable {
 		this.type = type;
 	}
 
-	public Date getUpdateDate() {
+	public Timestamp getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
 	}
 
-	public Date getCreateDate() {
+	public Timestamp getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
 

@@ -1,7 +1,7 @@
 package org.taljaard.nextgear.tests.base;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import org.joda.time.DateTime;
 import org.junit.runner.RunWith;
@@ -17,6 +17,7 @@ import org.taljaard.nextgear.mybatis.dao.Contracts;
 import org.taljaard.nextgear.mybatis.mapper.ContractsMapper;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = { NextgearCapitolTestApplication.class })
@@ -28,9 +29,13 @@ public abstract class ITBase {
 	
 	protected Gson gsonConverter;
 
+	public ITBase() {
+		gsonConverter = new GsonBuilder().setDateFormat("YYYY-mm-dd hh:mm:ss").create();
+	}
+	
 	protected Contracts createNewContractDOA() {
 		Contracts contract = new Contracts();
-		Date insertDate = new Date(new DateTime().getMillis());
+		Timestamp insertDate = new Timestamp(new DateTime().getMillis());
 		contract.setAmountRequested(BigDecimal.valueOf(6000));
 		contract.setActivitationDate(insertDate);
 		contract.setCreateDate(insertDate);

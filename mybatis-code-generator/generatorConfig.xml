@@ -8,10 +8,10 @@
 		<property name="javaFileEncoding" value="UTF-8"/>
 		
 		<jdbcConnection 
-			connectionURL="jdbc:mysql://172.17.0.2:3306/nextgen?useSSL=false"
-			driverClass="com.mysql.jdbc.Driver" 
-			password="app12345" 
-			userId="app"
+			connectionURL="${spring.datasource.url}"
+			driverClass="${spring.datasource.driver-class-name}" 
+			password="${spring.datasource.password}" 
+			userId="${spring.datasource.username}"
 		/>
 		
 		<javaTypeResolver >
@@ -36,9 +36,9 @@
 			<property name="useActualColumnNames" value="true"/>
 			<generatedKey column="id" sqlStatement="JDBC" identity="true" />
 			<columnOverride column="contractType" property="type"/>
-			<columnOverride column="updateDate" javaType="java.sql.Date" jdbcType="TIMESTAMP"/>
-			<columnOverride column="createDate" javaType="java.sql.Date" jdbcType="TIMESTAMP"/>
-			<columnOverride column="activitationDate" javaType="java.sql.Date" jdbcType="TIMESTAMP"/>
+			<columnOverride column="updateDate" javaType="java.sql.Timestamp" jdbcType="TIMESTAMP"/>
+			<columnOverride column="createDate" javaType="java.sql.Timestamp" jdbcType="TIMESTAMP"/>
+			<columnOverride column="activitationDate" javaType="java.sql.Timestamp" jdbcType="TIMESTAMP"/>
 		</table>
 	</context>
 </generatorConfiguration>
