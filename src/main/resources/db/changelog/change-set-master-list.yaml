@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include: 
+      file: /db/changelog/change-sets/add-table-contracts.sql
+  - include:
+      file: /db/changelog/data-inserts/add-contracts-to-table.sql
