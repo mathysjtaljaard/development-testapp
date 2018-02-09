@@ -44,7 +44,7 @@ public class ContractRestController {
 	@PostMapping(path = "/contracts/new")
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Contract createNewContract(@RequestBody Contract newContract) {
-		return service.createNew(newContract);
+		return service.save(newContract);
 	}
 
 	// patch/put && update contract
